@@ -5,6 +5,9 @@ module.exports = {
 		.setName('time')
 		.setDescription("Replies with Cluck o'clock!"),
 	async execute(interaction) {
-		await interaction.reply("Cluck o'clock!");
+		const date = new Date();
+		const options = { hour: 'numeric', minute: 'numeric' };
+		const localizedTime = date.toLocaleTimeString('en-US', options);
+		await interaction.reply(`Right now, it's ${localizedTime}, but it's always Cluck o'clock!`);
 	},
 };
